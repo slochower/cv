@@ -1,0 +1,453 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{cv, booktabs, fontawesome}
+\usepackage[scaled]{helvet}
+\usepackage{graphicx, wrapfig}
+\usepackage{chngpage}
+\usepackage[export]{adjustbox}
+\usepackage[bookmarks, colorlinks, breaklinks, 
+pdftitle={Curriculum Viate: David R. Slochower},
+pdfauthor={David R. Slochower}]{hyperref}  
+\hypersetup{linkcolor=blue,
+citecolor=blue,
+filecolor=black,
+urlcolor=blue} 
+\usepackage{longtable}
+
+% https://tex.stackexchange.com/questions/207760/add-an-image-to-each-entry-in-bibliography
+% https://tex.stackexchange.com/questions/90031/patching-printbibliography-for-displaying-content-to-both-document-and-log
+%\usepackage[sorting=ydnt,citestyle=authoryear,bibstyle=authoryear-comp,defernumbers=true,maxnames=20,giveninits=true, bibencoding=utf8, terseinits=true, uniquename=init,dashed=false,doi=false,isbn=false,natbib=true,url=false,backend=biber]{biblatex}
+%\bibliography{my-publications}
+%
+%\DeclareSourcemap{
+%  \maps[datatype=bibtex, overwrite]{
+%    \map{
+%      \step[fieldset=month, null]
+%    }
+%  }
+%}
+%\AtEveryBibitem{%
+%  \clearlist{language}%
+%}
+%
+% Nice!
+% https://tex.stackexchange.com/questions/33330/make-one-authors-name-bold-every-time-it-shows-up-in-the-bibliography/211821#211821
+%\newcommand{\makeauthorbold}[1]{%
+%  \DeclareNameFormat{author}{%
+%    \ifthenelse{\value{listcount}=1}
+%    {%
+%      {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\namepartfamily\addcomma\addspace \namepartgiveni}}{\namepartfamily\addcomma\addspace \namepartgiveni}}
+%      %
+%    }{\ifnumless{\value{listcount}}{\value{liststop}}
+%        {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}
+%        {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}%
+%      }
+%    \ifthenelse{\value{listcount}<\value{liststop}}
+%    {\addcomma\space}
+%  }
+%}
+%\makeauthorbold{Slochower}
+% Use useprefix because of Ashton de Silva
+%\ExecuteBibliographyOptions{useprefix=true}
+%\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\sffamily}
+%\usepackage{inconsolata}
+
+%\makebibcategory{pprs}{Peer-reviewed publications}
+%\makebibcategory{drafts}{Preprints and drafts}
+%\makebibcategory{thesis}{Ph.D. thesis}
+
+%\addtocategory{pprs}{
+%slochower_motor-like_2018,
+%yin_overview_2017,
+%smith_salmon-derived_2016,
+%slochower_physical_2015,
+%slochower_counterion-mediated_2014,
+%janmey_polyelectrolyte_2014,
+%slochower_quantum_2013,
+%moravcevic_kinase_2010,
+%donald_transmembrane_2011,
+%fujii_optimization_2012,
+%wang_counterion-mediated_2014,
+%yin_sampl5_2017,
+%mobley_escaping_2018,
+%bradley_molecular_2018,
+%himmelstein_open_2018
+%}
+%
+%\addtocategory{thesis}{
+%slochower_multiscale_2014}
+%
+%
+%\addtocategory{books}{
+%slochower_lipid_2018}
+%\nocite{*}
+%\setlength{\bibitemsep}{1.8pt}
+%\printbib{pprs}
+%\printbib{books}
+%\printbib{thesis}
+
+
+% Trying something from John Chodera
+\newcounter{articlenumber}
+\setcounter{articlenumber}{1}
+% NEW ARTICLE STYLE WITH IMAGE AND NO NUMBERS
+\newcommand{\newarticle}[3]{
+\begin{adjustwidth}{-0.05in}{-1in}  
+\begin{tabular}{p{6in}p{0.9in}}
+\parbox[c]{6in}{\arabic{articlenumber}. {#2} $\cdot$ {#3}} & \parbox[c]{1in}{\centering \includegraphics[height=0.8in]{thumbnails/{#1}}}
+\end{tabular}
+\end{adjustwidth}
+\vspace{0.075in}
+\addtocounter{articlenumber}{1}
+}
+
+\newcounter{booknumber}
+\setcounter{booknumber}{1}
+\newcommand{\newbook}[2]{
+\begin{adjustwidth}{-0.05in}{-1in}  
+\begin{tabular}{p{6in}p{0.9in}}
+\parbox[c]{6in}{\arabic{booknumber}. {#2}} & \parbox[c]{1in}{\centering \includegraphics[height=0.8in]{thumbnails/{#1}}}
+\end{tabular}
+\end{adjustwidth}
+\vspace{0.075in}
+\addtocounter{booknumber}{1}
+}
+
+\newcommand{\newthesis}[2]{
+\begin{adjustwidth}{-0.05in}{-1in}  
+\begin{tabular}{p{6in}p{0.9in}}
+\parbox[c]{6in}{{#2}} & \parbox[c]{1in}{\centering \includegraphics[height=0.8in]{thumbnails/{#1}}}
+\end{tabular}
+\end{adjustwidth}
+\vspace{0.075in}
+}
+
+
+\name{David R.~Slochower}
+\info{\faicon{map-marker} & Skaggs School of Pharmacy and Pharmaceutical Sciences \\ &University of California, San Diego \\ &9500 Gilman Drive \#0736 \\ &La Jolla, CA, USA 92093\\
+      \faicon{phone} & 610-639-4493\\
+      \faicon{home} & www.slochower.name\\
+      \faicon{envelope} & dslochower@ucsd.edu\\
+      \faicon{twitter} & drslochower\\
+      \faicon{github} & slochower}
+      
+\begin{document}
+
+\maketitle
+ 
+\section{Education and positions}
+\begin{tabular}{lll}
+2015- & \textbf{Postdoctoral scholar}, University of California, San Diego\\
+             & Advisor: Michael K.~Gilson, M.D., Ph.D.\\
+             & Topic: Biophysical modeling and computational chemistry \\
+             \\
+2014         & \textbf{Instructor}, University of Pennsylvania \\
+             & Course: ``Molecular physiology and cellular engineering"\\
+             \\
+2007-2014 & \textbf{Ph.D. in Biochemistry and Molecular Biophysics}, University of Pennsvylvania \\
+          & Advisor: Paul A.~Janmey, Ph.D. \\ 
+          & Thesis: 
+Multiscale simulations of phosphatidylinositol bisphosphate: understanding its \\ & biological role through physical chemistry \\
+\\
+2003-2007 & \textbf{A.B. \textit{cum laude} in Physics with distinction}, Kenyon College \\
+          & Research: high energy nuclear imaging
+\end{tabular}
+
+\section{Research interests}
+\begin{itemize}
+    \item Physical chemistry of biological membranes
+    \item Nonequilibrium statistical mechanics of molecular motors
+    \item New methods for computing binding free energies
+    \item Improved simulation force fields based on open source science
+\end{itemize}
+
+\nopagebreak[4]
+\section{Previous research}
+\begin{longtable}[H]{lp{16cm}}
+2017- & \bf{Force field development with the open force field consortium} \\
+      & \href{http://www.openforcefield.org}{Open Force Field Group} \\
+2016- & \bf{Thermodynamics of host-guest molecular recognition} \\
+      & Advisor: Michael K. Gilson, M.D., Ph.D. (University of California, San Diego)\\
+2015- & \bf{Theory of molecular motors} \\
+      & Advisor: Michael K. Gilson, M.D., Ph.D. (University of California, San Diego)\\
+2014-2015 & \bf{Simulations and docking of macrocycles} \\
+     & Advisors: Ravi Radhakrishnan, Ph.D. (University of Pennsylvania) and Mark A. Lemmon, Ph.D. (Yale University) \\
+2009-2014 & \bf{Quantum, all-atom, and coarse-grained molecular dynamics of membranes} \\
+     & Advisor: Paul A. Janmey, Ph.D. (University of Pennsylvania) \\
+2008 & \bf{Simulations of viral entry into cells} \\
+     & Advisors: William DeGrado, Ph.D. (University of California, San Francisco) and Michael L. Klein, Ph.D. (Temple University) \\
+2007 & \bf{Experimental single molecule biophysics} \\
+     & Advisor: Yale E. Goldman, M.D., Ph.D. (University of Pennsylvania) \\
+2007 & \bf{Computational design of synthetic peptides} \\
+     & Advisor: Jeffery Saven, Ph.D. (University of Pennsylvania) \\
+2006-2008 & \bf{Coded aperture imaging} \\
+     & Advisors: John Idoine, Ph.D. (Kenyon College), John Frangioni, M.D., Ph.D. (Harvard University), and Richard Lanza, Ph.D. (Massachusetts Institute of Technology) \\
+2005 & \bf{Analysis of protein hydration shells in simulations} \\
+     & Advisor: Matthias Buck, Ph.D. (Case Western Reserve University) \\
+\end{longtable}
+
+%\section{Experience}
+%\begin{tabular}{lp{16cm}}
+%2014-2015 & \textbf{Postdoctoral fellow, Radhakrishnan and Lemmon Labs}, University of Pennsylvania\\
+
+%        & I worked on clustering protein ensembles from simulations of receptor tyrosine kinases to improve small molecule docking. \\
+%        
+%2009-2014 & \textbf{Graduate student, Janmey Lab}, University of Pennsylvania\\ 
+%         & In my thesis work, I ran multiscale molecular dynamics simulations to model the
+%structure and dynamics of lipids in the plasma membrane under
+%physiological conditions. I used this model to determine the
+%interactions between lipids and intracellular counterions as well as
+%what factors affect the ability of lipid clusters to form in the
+%plasma membrane. This work is in collaboration with the Radhakrishnan
+%lab.\\
+%
+%Summer 2006 & \textbf{Summer student, Frangioni Lab}, Harvard University\\ &
+%In the summer of 2006, I was responsible for continuing the collaboration between Prof. John
+%Frangioni at Harvard, Prof. John Idoine at Kenyon, and Prof. Dick
+%Lanza at MIT on a coded aperture nuclear imaging device that
+%integrates multiple medical imaging modalities. I developed a three
+%dimensional iterative reconstruction algorithm that was used to image
+%small animals injected with 99mTc coupled to a bone growth marker.\\
+%            
+%Summer 2005 & \textbf{Summer student, Buck Lab}, Case Western Reserve University\\ &
+%During summer 2005, I analyzed two supercomputer simulations of
+%lysozyme surrounded by varying amounts of water molecules to
+%characterize protein hydration shells. The dynamics of waters were
+%measured over 50 ns while the motion of the protein side chains were
+%compared to NMR data.\\
+%
+%2005-2007 & \textbf{Undergraduate student, Idoine Lab}, Kenyon College\\ 
+%          & From September
+%2005 to May 2007, I worked in the lab of Prof. John Idoine on nuclear
+%imaging and its application to medicine. Over these years, I learned
+%how to operate and repair a high-energy NaI(Tl) gamma ray detector,
+%managed the Solaris workstations, and designed new reconstruction
+%algorithms and software. This research was supplemented by two
+%independent study courses Prof. Idoine and I designed.
+%
+%\end{tabular}
+
+
+
+\section{Peer-reviewed publications}
+\newarticle{manubot.png}{
+Himmelstein DS, {\bf Slochower DR}, Malladi VS, Greene CS, Gitter, A. "Open Collaborative Writing with Manubot" {\it Under Review at eLife} 2018
+}
+{
+\href{https://github.com/greenelab/manubot}{GitHub} $\cdot$
+\href{http://blogs.nature.com/naturejobs/2018/02/20/techblog-manubot-powers-a-crowdsourced-deep-learning-review/}{Nature TechBlog}
+}
+%
+\newarticle{bilayers}{
+Bradley RP$^*$, {\bf Slochower DR$^*$}, Janmey PA, Radhakrishan R. "Molecular modeling of divalent cation-specific nano-clusters of phosphoinositides in physiologically-composed bilayers" {\it Under Review at JACS} 2018
+}
+{
+\href{https://github.com/biophyscode}{GitHub}
+}
+%
+\newarticle{smirnoff.png}{
+Mobley DL, Bannan CC, Bayly CI, Rizzi A, Chodera JD, Lim VT, Lim NM, Beauchamp KA, {\bf Slochower DR}, Shirts MR, Gilson MK, Eastman PK. "Escaping Atom Types in Force Fields Using Direct Chemical Perception" {\it Under Review at JCTC} 2018}
+{\href{https://github.com/openforcefield}{GitHub}}
+%
+\newarticle{motors.png}{
+{\bf Slochower DR}, Gilson MK. "Motor-like Properties of Nonmotor Enzymes" {\it Biophysical Journal} 114:9, 2018}
+{\href{https://www.biorxiv.org/content/early/2018/02/07/121848}{bioRxiv} $\cdot$ \href{http://dx.doi.org/10.1016/j.bpj.2018.02.008}{DOI} $\cdot$ \href{https://github.com/GilsonLabUCSD/nonequilibrium}{GitHub} $\cdot$ \href{https://www.cell.com/biophysj/fulltext/S0006-3495\%2818\%2930444-2}{New and Notable} $\cdot$ \href{http://ucsdhealthsciences.tumblr.com/post/173707350285/its-not-intelligent-design-so-how-did}{UCSD In the News}
+}
+%
+\newarticle{apr.png}{
+Yin J, Henriksen NM, {\bf Slochower DR}, Gilson MK. "The SAMPL5 host-guest challenge: computing binding free energies and enthalpies from explicit solvent simulations by the attach-pull-release (APR) method" {\it Journal of Computer-Aided Molecular Design} 1:31 133-145, 2017}
+{\href{http://dx.doi.org/10.1007/s10822-016-9970-8}{DOI}}
+
+%
+\newarticle{sampl5.png}{
+Yin J, Henriksen NM, {\bf Slochower DR}, Shirts MR, Chiu MW, Mobley DL, Gilson MK. "Overview of the SAMPL5 host-guest challenge: Are we doing better?" {\it Journal of Computer-Aided Molecular Design} 1:31 1-19, 2017}
+{\href{http://dx.doi.org/10.1007/s10822-016-9974-4}{DOI} $\cdot$ 
+\href{https://github.com/GilsonLabUCSD/SAMPL5-bootstrapping-error-analysis}{GitHub}}
+%
+\newarticle{thrombin.png}{
+Smith JR, Galie PA, {\bf Slochower DR}, Weisshaar CL, Janmey PA, Winkelstein BA. "Salmon-derived thrombin inhibits development of chronic pain through an endothelial barrier protective mechanism dependent on APC" {\it Biomaterials} 80 96-105, 2016}
+{\href{http://dx.doi.org/10.1016/j.biomaterials.2015.11.062}{DOI}}
+%
+\newarticle{pccp}{
+{\bf Slochower DR}, Wang Y-H, Radhakrishnan R, Janmey PA. "Physical chemistry and membrane properties of two phosphatidylinositol bisphosphate isomers" {\it Physical Chemistry Chemical Physics } 17:19 12608-12615, 2015}
+{\href{http://dx.doi.org/10.1039/C5CP00862J}{DOI}}
+%
+\newarticle{clusters}{
+Wang Y-H, {\bf Slochower DR}, Janmey PA. "Counterion-mediated cluster formation by polyphosphoinositides" {\it Chemistry and Physics of Lipids } 182 38-51, 2014}
+{\href{http://dx.doi.org/10.1016/j.chemphyslip.2014.01.001}{DOI}}
+%
+\newarticle{pattern}{
+{\bf Slochower DR}, Wang Y-H, Tourdot RW, Radhakrishnan R, Janmey PA. "Counterion-mediated pattern formation in membranes containing anionic lipids" {\it Advances in Colloid and Interface Science } 208 177-188, 2014}
+{\href{http://dx.doi.org/10.1016/j.cis.2014.01.016}{DOI}}
+%
+\newarticle{pf1}{
+Janmey PA, {\bf Slochower DR}, Wang Y-H, Wen Q, Ceber A. "Polyelectrolyte properties of filamentous biopolymers and their consequences in biological fluids" {\it Soft Matter} 10:10 1439-1449, 2014}
+{\href{http://dx.doi.org/10.1039/c3sm50854d}{DOI}}
+%
+\newarticle{quantum}{
+{\bf Slochower DR}, Huwe PJ, Radhakrishnan R, Janmey PA. "Quantum and All-Atom Molecular Dynamics Simulations of Protonation and Divalent Ion Binding to Phosphatidylinositol 4,5-Bisphosphate (PIP$_2$)" {\it The Journal of Physical Chemistry B} 117:28 8322-8329, 2013}
+{\href{http://dx.doi.org/10.1021/jp401414y}{DOI}}
+%
+\newarticle{ca}{
+Fujii, H, Idoine JD, Gioux S, Accorsi R, {\bf Slochower DR}, Lanza R, Frangioni JV. "Optimization of Coded Aperture Radioscintigraphy for Sentinel Lymph Node Mapping" {\it Molecular Imaging and Biology} 14:2 173-182, 2012}
+{\href{http://dx.doi.org/10.1007/s11307-011-0494-2}{DOI}}
+%
+\newarticle{transmembrane}{
+Donald JE, Zhang Y, Fiorin G, Carnevale V, {\bf Slochower DR}, Gai F, Klein ML, DeGrado WF. "Transmembrane orientation and possible role of the fusogenic peptide from parainfluenza virus 5 (PIV5) in promoting fusion" {\it Proceedings of the National Academy of Sciences} 108:10 3958-3963, 2011}
+{\href{http://dx.doi.org/10.1073/pnas.1019668108}{DOI}}
+%
+\newarticle{ka1}{
+Moravcevic K, Mendrola JM, Schmitz KR, Wang Y-H, {\bf Slochower DR}, Janmey PA, Lemmon MA. "Kinase Associated-1 Domains Drive MARK/PAR1 Kinases to Membrane Targets by Binding Acidic Phospholipids" {\it Cell} 143:6 966-977, 2010}
+{\href{http://dx.doi.org/10.1016/j.cell.2010.11.028}{DOI}}
+%
+%
+$^*$ These authors contributed equally.
+\section{Book chapters}
+\newbook{shape}{
+{\bf Slochower DR}, Wang Y-H, Radhakrishan R, Janmey PA. "Lipid membrane shape evolution and the actin cytoskeleton" in {\it Handbook of Lipid Membranes, Molecular and Materials Aspects}, Eds. Safinya C, R\"{a}dler, J. (2018)}
+
+\section{Ph.D. thesis}
+\newthesis{thesis}{{\bf Slochower DR}. "Multiscale simulations of phosphatidylinositol bisphosphate: understanding its biological role through physical chemistry" {\it University of Pennsylvania}, 2014}
+
+\section{Software packages and contributions}
+\begin{tabular}{ll p{14cm}}
+    \texttt{pAPRika} & \href{https://github.com/slochower/pAPRika}{GitHub} & Free energy calculations with AMBER and OpenMM\\
+    \texttt{speakeasy} & \href{https://github.com/nhenriksen/speakeasy}{GitHub} & Automates the conversion of SMIRNOFF parameters to AMBER force field files \\
+    \texttt{smirnovert} & \href{https://github.com/slochower/smirnoff-host-guest}{GitHub} & Convert host-guest systems into SMIRNOFF force fields \\
+    \texttt{manubot} & \href{https://github.com/greenelab/manubot}{GitHub} & Automated scholarly publishing \\
+    \texttt{BioPhysCode} & \href{https://github.com/biophyscode}{GitHub} & Tools for building and analyzing membrane simulations
+\end{tabular}
+
+
+\section{Invited talks, posters, abstracts, and workshops (since 2010)}
+\begin{tabular}{ll p{14 cm}}
+2018 & Talk & \bf{Using calorimetric data to drive accuracy in computer-aided drug design} \\
+&& Presented by Michael K. Gilson at The North American Calorimetry Conference \\
+2017 & \bf{Talk} & \textbf{Directional motion in chiral molecules out of equilibrium} \\
+     && 253rd American Chemical Society Meeting \\
+2017 & Talk & \textbf{Are all enzymes molecular motors? An effect of binding and catalysis out of equilibrium} \\
+     && Presented by Michael K. Gilson at the 254th American Chemical Society Meeting \\
+2017 & \bf{Poster} & \textbf{Directional and driven motion in enzymes out of equilibrium} \\
+     && 61st Annual Biophysical Society Meeting \\     
+2014 & \bf{Talk} & \textbf{Multiscale modeling of polyphosphoinositides}\\
+     && University of California, San Diego\\
+2014 & \bf{Talk} & \textbf{Physical chemisty of phosphatidylinositol isomers}\\
+     && University of California, Irvine\\
+2013 & \bf{Talk} & \textbf{Membranes: Polyphosphoinositides}\\
+     && Friday Research Discussions, University of Pennsylvania\\
+2013 & \bf{Poster} & \textbf{Quantum and All-atom Molecular Dynamics Simulations of Proton   Binding to Phosphatidylinositol 4,5-bisphosphate (PIP$_2$)}\\
+     && 57th Biophysical Society Meeting\\
+2012 & Poster & \textbf{Multiscale modeling of membrane curvature induced by epsin} \\
+     && Presented by Ryan Bradley at the 244th American Chemical Society Meeting \\
+2012 & \bf{Talk} & \textbf{Molecular Dynamics Simulations of Ion Binding and Protonation of 
+Phosphatidylinositol Bisphosphate (PIP$_2$)} \\
+     && 244th American Chemical Society Meeting \\
+2012 & \bf{Talk} & \textbf{Simulations of membrane electrostatics with PtdInsP$_2$}\\
+     && George W. Raiziss 30th Annual Retreat \\
+2012 & \bf{Poster} & \textbf{Molecular Dynamics Simulations of Phosphatidylinositol Bisphosphate (PIP$_2$)}\\
+     && American Physical Society, March Meeting\\
+2011 & \bf{Talk} & \textbf{Molecular Dynamics Simulations of Membranes}\\
+     && 47th New England Complex Fluids Workshop \\
+2011 & Poster & \textbf{Association of transmembrane helices in viral fusion peptides suggests a protein-centric mechanism of membrane fusion} \\
+     && Presented by Giacomo Fiorin at the 55th Biophysical Society Meeting \\
+2011 & \bf{Poster} & \textbf{Molecular Dynamics Simulations of Monolayers and Membranes with Phosphatidylinositol Bisphosphate} \\
+     && 55th Biophysical Society Meeting\\
+2011 & Workshop & \textbf{Demsond Workshops} \\
+     && D.~E.~Shaw Research\\
+2011 & Workshop & \textbf{Temple High Performance Computing (HPC)}\\
+     && Axel Kohlmeyer, Temple University\\
+2010 & \bf{Talk} & \textbf{Simulating highly charged monolayers}\\
+     && Mechanistic Studies in Membrane Biophysics: Experiments and Theory, 
+Telluride Science and Research Workshop\\
+2010 & \bf{Poster} & \textbf{Simulations of Monolayers with Phosphatidylinositol Bisphosphate}\\
+     && Gotham-Metro Condensed Matter Meeting\\
+2010 & Poster & \textbf{Viral fusogenic peptides form transmembrane helical bundles: Implications for the mechanism of fusion}\\
+     && Presented by Vincenzo Carnevale at the 239th American Chemical Society\\
+%2010-2013 && Various posters at the Dr.~George W. Raiziss Retreat \\
+%    && Department of Biochemistry and Biophysics, University of Pennsylvania
+%2007 & \textbf{What are the questions that drive evolution?} (Talk)\\
+%     & Biology Department, Kenyon College\\
+%2006 & \textbf{Coded Aperture Imaging} (Talk)\\
+%     & Senior exercise, Kenyon College\\
+%2005 & \textbf{The dynamics of water surrounding proteins} (Talk)\\
+%     & Physics Colloquium, Kenyon College
+\end{tabular}
+
+\section{Awards and grants}
+\begin{tabular}{ll}
+2012-2013 & NIH T32 Structural Biology Training Grant\\
+2011 & Juan Grana Graduate Teaching Assistantship\\
+2010-2012 & NIH T32 Interdisciplinary Cardiovascular Training Grant\\
+2007 & Distinction in Physics (best research), Kenyon College\\
+2007 & Sigma Xi, The Scientific Honor Society\\
+2004-2007 & Dean's List, Kenyon College\\
+2005 & Best Summer Project (biophysics), Case Western Reserve University\\
+2001 & Science Olympiad, National Champion Team
+\end{tabular}
+
+\section{Teaching and mentoring experience}
+\begin{tabular}{lp{16cm}}
+Fall 2014 & Molecular Physiology \& Cellular Engineering -- University of Pennsylvania\\ & 
+I was responsible for creating the syllabus, giving lectures, designing project assignments, 
+and grading for one-half of this course.\\
+
+Spring 2011 & Macromolecular Biophysics II -- University of
+Pennsylvania\\ & I was in charge of arranging lectures, holding office
+hours and regular review sessions, grading homework and exams for
+first and second year graduate students.\\ 
+2009- & Mentored high school, undergraduate, and graduate students in research. \\
+Spring 2005 & Programming I
+-- Kenyon College\\ & I designed regression tests for weekly project
+assignments, graded, and then posted my own solutions to the class.
+\end{tabular}
+
+\section{Service}
+\begin{itemize}
+    \item Reviewer for \emph{Soft Matter}
+    \item Reviewer for \emph{European Biophysics Journal}
+    \item Reviewer for \emph{Scientific Reports}
+    \item Reviewer for \emph{Nature Structural \& Molecular Biology}
+    \item Member, Biophysical Society
+    \item Member, American Chemical Society
+\end{itemize}
+
+\section{References}
+Michael K.~Gilson, M.D., Ph.D. \\
+Professor and Chair in Computer-Aided Drug Design \\
+Co-Director UC San Diego Center for Drug Discovery Innovation \\
+Skaggs School of Pharmacy and Pharmaceutical Sciences \\
+University of California, San Diego \\
+9500 Gilman Drive \#0736 \\
+La Jolla, CA 92093 \\
+Voice: (858) 822-0622 \\
+\url{mgilson@ucsd.edu}
+\vskip 0.2 in
+Paul A.~Janmey, Ph.D. \\
+Professor of Physiology \\
+Associate Director, Institute for Medicine and Engineering \\
+University of Pennsylvania \\
+1010 Vagelos Research Laboratories \\
+3340 Smith Walk \\
+Philadelphia, PA 19104 \\
+Voice: (215) 573-7380 \\
+\url{janmey@mail.med.upenn.edu}
+\vskip 0.2 in
+Ravi Radhakrishnan, Ph.D. \\
+Professor of Bioengineering \& Chemical and Biomolecular Engineering \\
+Department of Bioengineering \\
+University of Pennsylvania \\
+210 S. 33rd Street \\
+240 Skirkanich Hall \\
+Philadelphia, PA 19104 \\
+Voice: (215) 898-0592 \\
+\url{rradhak@seas.upenn.edu}
+\vskip 0.2in
+David L.~Mobley, Ph.D. \\
+Professor of Pharmaceutical Sciences and Chemistry \\
+University of California, Irvine \\
+3134B Natural Sciences 1 \\
+Mail Code: 3958 \\
+Irvine, CA 92697 \\
+Voice: (949) 824-6383 \\
+\url{dmobley@uci.edu}
+\end{document}
+
