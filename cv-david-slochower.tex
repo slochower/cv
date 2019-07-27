@@ -121,6 +121,17 @@ urlcolor=blue}
 \vspace{0.075in}
 }
 
+\newcounter{codenumber}
+\setcounter{codenumber}{1}
+\newcommand{\newcode}[4]{
+\begin{adjustwidth}{-0.05in}{-1in}  
+\begin{tabular}{p{6in}p{0.9in}}
+\parbox[c]{6in}{\begin{tabular}{p{1.0in}p{0.6in}p{4in}}	#2 & #3 & #4 \end{tabular}} & \parbox[c]{1in}{\centering \includegraphics[width=0.8in]{thumbnails/{#1}}}
+\end{tabular}
+\end{adjustwidth}
+\addtocounter{codenumber}{1}
+}
+
 
 \name{David R.~Slochower}
 \info{\faicon{map-marker} & Skaggs School of Pharmacy and Pharmaceutical Sciences \\ &University of California, San Diego \\ &9500 Gilman Drive \#0736 \\ &La Jolla, CA, USA 92093\\
@@ -136,9 +147,12 @@ urlcolor=blue}
  
 \section{Education and positions}
 \begin{tabular}{lll}
+2019- & \textbf{Open Force Field Postdoctoral Fellow}\\
+             & Topic: Force Field Development \\
+             \\
 2015- & \textbf{Postdoctoral scholar}, University of California, San Diego\\
              & Advisor: Michael K.~Gilson, M.D., Ph.D.\\
-             & Topic: Biophysical modeling and computational chemistry \\
+             & Topic: Computational chemistry and biophysics\\
              \\
 2014         & \textbf{Instructor}, University of Pennsylvania \\
              & Course: ``Molecular physiology and cellular engineering"\\
@@ -325,14 +339,19 @@ $^*$ These authors contributed equally.
 \section{Ph.D. thesis}
 \newthesis{thesis}{{\bf Slochower DR}. "Multiscale simulations of phosphatidylinositol bisphosphate: understanding its biological role through physical chemistry" {\it University of Pennsylvania}, 2014}
 
-\section{Software packages and contributions}
-\begin{tabular}{ll p{14cm}}
-    \texttt{pAPRika} & \href{https://github.com/slochower/pAPRika}{GitHub} & Free energy calculations with AMBER and OpenMM\\
-    \texttt{speakeasy} & \href{https://github.com/nhenriksen/speakeasy}{GitHub} & Automates the conversion of SMIRNOFF parameters to AMBER force field files \\
-    \texttt{smirnovert} & \href{https://github.com/slochower/smirnoff-host-guest}{GitHub} & Convert host-guest systems into SMIRNOFF force fields \\
-    \texttt{manubot} & \href{https://github.com/greenelab/manubot}{GitHub} & Automated scholarly publishing \\
-    \texttt{BioPhysCode} & \href{https://github.com/biophyscode}{GitHub} & Tools for building and analyzing membrane simulations
-\end{tabular}
+\section{Software packages authored and co-authored}
+
+    \newcode{pAPRika}{\texttt{pAPRika}}{\href{https://github.com/slochower/pAPRika}{GitHub}}{Free energy calculations with AMBER and OpenMM}
+    %
+    \newcode{speakeasy}{\texttt{speakeasy}}{\href{https://github.com/nhenriksen/speakeasy}{GitHub}}{Automates the conversion of SMIRNOFF parameters to AMBER force field files}
+    %
+    \newcode{taproom}{\texttt{taproom}}{\href{https://github.com/slochower/host-guest-benchmarks}{GitHub}}{Host-guest (and soon, protein-ligand) benchmark systems for free energy calculations, with support for SMIRNOFF parameter coverage}
+    %
+    \newcode{smirnovert}{\texttt{smirnovert}}{\href{https://github.com/slochower/smirnoff-host-guest}{GitHub}}{Convert host-guest systems into SMIRNOFF force fields}
+    %
+    \newcode{manubot-logo}{\texttt{manubot}}{\href{https://github.com/greenelab/manubot}{GitHub}}{Automated scholarly publishing}
+    %
+    \newcode{biophyscode}{\texttt{BioPhysCode}}{\href{https://github.com/biophyscode}{GitHub}}{Tools for building and analyzing membrane simulations}
 
 \section{Software skills}
 \begin{itemize}
@@ -346,6 +365,8 @@ $^*$ These authors contributed equally.
 
 \section{Invited talks, posters, abstracts, and workshops (selected)}
 \begin{tabular}{ll p{14 cm}}
+2019 & Talk & \bf{Benchmarking emerging force fields from the Open Force Field Initiative} \\
+&& 2019 American Chemical Society meeting \\
 2019 & Talk & \bf{Binding free energy calculations using the attach-pull-release method} \\
 && 2019 AMBER developers' meeting \\
 2019 & Talk & \bf{Benchmarking emerging force fields with binding thermodynamics calculations} \\
@@ -405,6 +426,7 @@ Telluride Science and Research Workshop\\
 
 \section{Awards and grants}
 \begin{tabular}{ll}
+2019 & Open Force Field Initiative Postdoctoral Fellow \\
 2012-2013 & NIH T32 Structural Biology Training Grant\\
 2011 & Juan Grana Graduate Teaching Assistantship\\
 2010-2012 & NIH T32 Interdisciplinary Cardiovascular Training Grant\\
